@@ -71,7 +71,7 @@ write.csv(t(apply(train.x[,-1], 2, function(x) {
     sqrt(var(x,na.rm=TRUE)/sum(!is.na(x))),
     wilcox.test(na.omit(x)[ !train.y], na.omit(x)[train.y])$p.value
   )
-})), 'train.x.csv')
+})), 'result/train.x.csv')
 write.csv(t(apply(test.x[,-1], 2, function(x) {
   c(
     sum(!is.na(x)),
@@ -81,7 +81,7 @@ write.csv(t(apply(test.x[,-1], 2, function(x) {
     sqrt(var(x,na.rm=TRUE)/sum(!is.na(x))),
     wilcox.test(na.omit(x)[ !test.y], na.omit(x)[test.y])$p.value
   )
-})), 'test.x.csv')
+})), 'result/test.x.csv')
 
 train.score <- sexual_precocity$predict(model, train.x.normalized, output_type = 'score')
 test.score <- sexual_precocity$predict(model, test.x.normalized, output_type = 'score')
